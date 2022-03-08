@@ -1,0 +1,21 @@
+object Form1: TForm1
+  Left = 728
+  Height = 240
+  Top = 145
+  Width = 320
+  Caption = 'Игра "Змейка"'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.2.0.4'
+  object MainMenu1: TMainMenu
+    Left = 44
+    Top = 13
+    object MenuItem1: TMenuItem
+      Caption = 'Запустить игру'
+      OnClick = MenuItem1Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Правила игры'
+    end
+  end
+end
