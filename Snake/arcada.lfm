@@ -1,0 +1,15 @@
+object Arcadaa: TArcadaa
+  Left = 372
+  Height = 320
+  Top = 172
+  Width = 320
+  Caption = 'Аркада'
+  OnKeyDown = FormKeyDown
+  LCLVersion = '2.2.0.4'
+  object Timer3: TTimer
+    Enabled = False
+    OnTimer = Timer3Timer
+    Left = 26
+    Top = 22
+  end
+end

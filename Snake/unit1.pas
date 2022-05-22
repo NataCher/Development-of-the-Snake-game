@@ -1,0 +1,119 @@
+unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
+  ExtCtrls, MMSystem;
+
+type
+
+  { TMenu }
+
+  TCell = record  // создание змейки
+  x,y:integer; // координаты движения для змейки
+  end;
+
+  TMenu = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Knopka1: TButton;
+    Knopka2: TButton;
+    Knopka3: TButton;
+    Knopka4: TButton;
+    Zagolovok: TLabel;
+  procedure FormCreate(Sender: TObject);
+  procedure Image2Click(Sender: TObject);
+  procedure Knopka1Click(Sender: TObject);
+  procedure Knopka2Click(Sender: TObject);
+  procedure Knopka3Click(Sender: TObject);
+  procedure Knopka4Click(Sender: TObject);
+
+
+  private
+
+  public
+
+  end;
+
+
+var         // иниализация - загрузка графики и всего прочего
+  Menu: TMenu;
+  Buf:TBitmap;  //графический буфер
+  Path:string; // string -> текст; Path -> путь в папку
+  IMG:array[1..9] of TBitmap; // хранение картинок -> TBitmat - это картинки в формате .bmp
+  i,j,povorot,Score,Regim,Vremya,Bessmertie,Zamedlenie,BesTime,ZamTime:integer; // поворот 1-вниз, 2-вверх, 3-влево, 4-вправо
+
+  Zmeyka: array[0..300] of TCell; // ноль это голова .. до каких размеров может быть змейка (макс)
+  Zmeyki: array[1..10,1..3] of TCell;
+  Povoroti: array[1..10] of Integer;
+  map:array[0..19,0..19] of integer;
+
+implementation
+
+ uses Game,ypr,Obigree,hardcore; //подключение формы "Запуск игры","Управление", "Об игре" | Модуль формы
+{$R *.lfm}
+
+
+{ TMenu }
+
+procedure TMenu.FormCreate(Sender: TObject);
+begin
+ PlaySound('Muzon\relaxfon.wav',0,SND_ASYNC or SND_LOOP); //проигрывание музыки
+
+ Path:=ExtractFileDir(Application.ExeName);  // путь к папке
+ Buf:=TBitmap.Create;   // создание графического буфера, выделяем память под графический буфер
+ Buf.Width:=320;
+ Buf.Height:=320;
+
+ for i:=1 to 9 do    //зарузка картинок
+ Begin
+ IMG[i]:=TBitmap.Create;
+ IMG[i].LoadFromFile(path+'\IMG\'+inttostr(i)+'.Bmp');
+ end;
+
+ for i:=0 to 300 do
+ begin
+ Zmeyka[i].x:=-2;
+ Zmeyka[i].y:=-2;
+ end;
+
+ for i:=0 to 19 do
+ for j:=0 to 19 do
+ map[i,j]:=0;
+end;
+
+procedure TMenu.Image2Click(Sender: TObject);
+begin
+
+end;
+
+
+procedure TMenu.Knopka1Click(Sender: TObject);
+begin
+  Game.Level.Show; //показ формы "Запуск игры" | модуль -> Name Form -> Показать
+end;
+
+procedure TMenu.Knopka2Click(Sender: TObject);
+begin
+  ypr.Ypravlenie.Show; //показ формы "Управление" | модуль -> Name Form -> Показать
+end;
+
+procedure TMenu.Knopka3Click(Sender: TObject);
+begin
+  Obigree.Obigre.Show;  //показ формы "Об игре" | модуль -> Name Form -> Показать
+end;
+
+
+procedure TMenu.Knopka4Click(Sender: TObject);
+begin
+close
+end;
+
+
+end.
+
+
