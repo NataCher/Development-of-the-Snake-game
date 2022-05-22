@@ -1,0 +1,19 @@
+object Obigre: TObigre
+  Left = 91
+  Height = 645
+  Top = 29
+  Width = 1206
+  Caption = 'Об игре'
+  ClientHeight = 645
+  ClientWidth = 1206
+  LCLVersion = '2.2.0.4'
+  object Button1: TButton
+    Left = 984
+    Height = 56
+    Top = 576
+    Width = 211
+    Caption = 'Назад '
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+end
