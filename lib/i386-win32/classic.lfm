@@ -1,0 +1,17 @@
+object classica: Tclassica
+  Left = 517
+  Height = 320
+  Top = 179
+  Width = 320
+  BorderStyle = bsSizeToolWin
+  Caption = 'Классика'
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poDesktopCenter
+  LCLVersion = '2.2.0.4'
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 150
+    OnTimer = Timer1Timer
+  end
+end

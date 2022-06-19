@@ -1,0 +1,17 @@
+object Arcadaa: TArcadaa
+  Left = 372
+  Height = 320
+  Top = 172
+  Width = 320
+  BorderStyle = bsSizeToolWin
+  Caption = 'Аркада'
+  OnKeyDown = FormKeyDown
+  Position = poDesktopCenter
+  LCLVersion = '2.2.0.4'
+  object T3: TTimer
+    Enabled = False
+    OnTimer = T3Timer
+    Left = 26
+    Top = 22
+  end
+end
